@@ -34,8 +34,14 @@ jobs:
 Each Bifrost release publishes a matching `vX.Y.Z` tag here, and that tag's
 `version` input defaults to the same Bifrost release, so the action and the
 binary it installs stay in lockstep — including policy and RQL syntax
-compatibility. Pin an exact tag (`@v0.10.4`) for reproducible gates; the
-floating major tag (`@v0`) follows the newest release.
+compatibility.
+
+`@v0` follows the newest release and is what the quick start above uses. Pin
+an exact tag when a gate has to stay reproducible:
+
+```yaml
+      - uses: BrokkAi/bifrost-policy-scan@v0.10.5
+```
 
 ## Documentation
 
