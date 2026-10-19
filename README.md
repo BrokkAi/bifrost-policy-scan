@@ -41,11 +41,32 @@ compatibility.
 an exact tag when a gate has to stay reproducible:
 
 ```yaml
-      - uses: BrokkAi/bifrost-policy-scan@v0.13.0
+      - uses: BrokkAi/bifrost-policy-scan@v0.13.1
 ```
 
 The pinned example names the release this copy of the action was published
 for, so it is always a tag that exists.
+
+## External rules
+
+The v0.13 follow-up acquires a pinned external rules descriptor and its exact
+semantic dependency before selecting policies. Set `packs-source` for a trusted
+custom GitHub repository or digest-bound HTTPS mirror; IDs come from the selected
+catalog. Invalid, absent, incompatible or unqualified content fails before the
+scan. Explicit `policy-files` remain supported with `policy-packs: ''`.
+
+The initial public rules 0.1.1 pin is historical and incompatible with v0.13;
+it must be replaced with a reviewed qualified content release before a v0.13
+product scan can pass. Availability does not qualify behavior. Existing released
+action tags retain their behavior until this change is published separately.
+
+Use `packs-token` only for an existing secret with Contents read on the selected
+private repository in a trusted push or approved manual workflow. PR events are
+prohibited, credentials never reach the engine, and authenticated content and
+analyzer data are not saved to Actions cache. No credential setup is performed.
+`packs-cache` controls verified content reuse; `packs-offline` requires a verified
+cache and fails on a miss. See the source format, trust and precedence contract
+in the linked documentation.
 
 ## Documentation
 
