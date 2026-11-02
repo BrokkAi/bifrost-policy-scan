@@ -44,7 +44,7 @@ compatibility.
 an exact tag when a gate has to stay reproducible:
 
 ```yaml
-      - uses: BrokkAi/bifrost-policy-scan@v0.14.4
+      - uses: BrokkAi/bifrost-policy-scan@v0.15.0
 ```
 
 The pinned example names the release this copy of the action was published
